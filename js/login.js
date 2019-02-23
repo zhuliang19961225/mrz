@@ -18,6 +18,9 @@ $(function(){
                           min: 2,
                           max: 6,
                           message:'用户名长度必须在2-6位之间'
+                      },
+                      callback: {
+                          message: '用户名不存在'
                       }
                   }
               },
@@ -30,6 +33,9 @@ $(function(){
                           min: 6,
                           max: 12,
                           message: "密码长度必须在6-12位之间"
+                      },
+                      callback: {
+                          message: '密码错误'
                       }
                   }
               }
@@ -47,15 +53,24 @@ $(function(){
             dataType:'json',
             success:function(res){
                 if(res.error === 1000){
-                    alert("用户名错误")
+                    $('#form').data('bootstrapValidator').updateStatus('username','INVALID','callback');
                 }
                 if(res.error === 1001) {
-                    alert("密码错误")
+                    $('#form').data('bootstrapValidator').updateStatus('password','INVALID','callback');
                 }
                 if(res.success) {
                     location.href = "index.html";
                 }
             }
         })
+    })
+
+    //表单重置功能
+    //reset按钮，本身可以重置内容，所以此时只需要重置状态即可
+    //resetForm(false); 只重置状态
+    //resetForm(true); 重置状态和内容
+    $("[type='reset']").click(function(){
+        //重置状态即可
+        $("#form").data('bootstrapValidator').resetForm();
     })
 });

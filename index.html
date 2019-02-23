@@ -4,9 +4,89 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
+    <title>乐淘电商</title>
+    <link rel="stylesheet" href="./lib/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="./lib/bootstrap-validator/css/bootstrapValidator.min.css">
+    <link rel="stylesheet" href="./lib/nprogress/nprogress.css">
+    <link rel="stylesheet" href="./css/login.css">
   </head>
   <body>
-    <div>我是首页</div>
+    <!-- 侧边栏 -->
+    <div class="lt_aside">
+      <!-- 标题 -->
+      <div class="brand">
+        <a href="index.html">黑马35期</a>
+      </div>
+      <!-- 用户 -->
+      <div class="user">
+        <img src="./images/02.jpg" alt="">
+        <p>超级管理员</p>
+      </div>
+      <!-- 导航 -->
+      <div class="nav">
+        <ul>
+          <li><a href="user.html"><i class="glyphicon glyphicon-user"></i><span>用户管理</span></a></li>
+          <li>
+            <a href="javascript:;" class="category"><i class="glyphicon glyphicon-list"></i><span>分类管理</span></a>
+            <div class="child">
+              <a href="first.html">一级分类</a>
+              <a href="second.html">二级分类</a>
+            </div>
+          </li>
+          <li><a href="product.html"><i class="glyphicon glyphicon-tags"></i><span>商品管理</span></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 主体 -->
+    <div class="lt_main">
+      <div class="lt_topbar">
+        <a href="#" class="icon_menu pull-left"><i class="glyphicon glyphicon-align-justify"></i></a>
+        <a href="#" class="icon_logout pull-right"><i class="glyphicon glyphicon-log-out"></i></a>
+      </div>
+
+      <!-- 路径导航 -->
+      <div class="container-fluid">
+        <ol class="breadcrumb mt_20">
+          <li><a href="index.html">管理系统</a></li>
+          <li class="active">首页</li>
+        </ol>
+
+        <!-- 两个容器 -->
+        <div class="lt_content">
+          <div class="echarts_left pull-left"></div>
+          <div class="echarts_right pull-right"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 模态框 -->
+    <div class="modal fade" tabindex="-1" id="logoutModal">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+            <h4 class="modal-title">温馨提示</h4>
+          </div>
+          <div class="modal-body">
+            <p class="red"><i class="glyphicon glyphicon-info-sign"></i>您确定要退出后台管理系统吗？</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            <button type="button" class="btn btn-primary" id="logoutBtn">退出</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <script src="./lib/jquery/jquery.js"></script>
+    <script src="./lib/bootstrap/js/bootstrap.js"></script>
+    <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+    <script src="./lib/nprogress/nprogress.js"></script>
+    <script src="./lib/echarts/echarts.min.js"></script>
+    <script src="./js/common.js"></script>
+    <script src="./js/isLogin.js"></script>
+    <script src="./js/index.js"></script>
   </body>
 </html>
