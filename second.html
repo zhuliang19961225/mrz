@@ -53,8 +53,28 @@
       <!-- 路径导航 -->
       <ol class="breadcrumb mt_20">
         <li><a href="index.html">管理系统</a></li>
-        <li class="active">首页</li>
+        <li class="active">分类管理</li>
+        <li class="active">二级分类</li>
       </ol>
+      <div class="lt_content">
+        <button class="btn btn-default" id="addBtn">添加分类</button>
+        <table class="table table-bordered table-hover mt_20">
+          <thead>
+            <tr>
+              <th>序号</th>
+              <th>一级分类名称</th>
+              <th>二级分类名称</th>
+              <th>二级分类LOGO</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- 模板引擎 -->
+          </tbody>
+        </table>
+        <div class="pull-right">
+            <ul id="paginator"></ul>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -84,12 +104,89 @@
   </div>
 
 
+  <!-- 添加模态框 -->
+  <div class="modal fade" tabindex="-1" id="addModal">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span >&times;</span></button>
+          <h4 class="modal-title">添加分类</h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <div class="dropdown">
+              <!-- 按钮 -->
+              <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                <span id="dropdownText">请选择一级分类</span>
+                <span class="caret"></span>
+              </button>
+              <!-- 切换的下拉菜单 -->
+              <ul class="dropdown-menu">
+                <!-- 模板引擎 -->
+              </ul>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <input type="text" name="brandName" class="form-control" placeholder="请输入二级分类">
+          </div>
+
+          <div class="form-group">
+            <label for="fileupload" class="btn btn-default">选择图片</label>
+            <input type="file" id="fileupload" style="display:none;">
+          </div>
+
+          <div class="form-group">
+            <img style="height:100px;" src="./images/none.png" alt="">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+          <button type="submit" class="btn btn-primary">添加</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+
+
+
+  <script type="text/html" id="secondTpl">
+  {{each rows v i}}
+    <tr>
+      <td>{{ i + 1 + (page-1)*size}}</td>
+      <td>{{v.categoryName}}</td>
+      <td>{{v.brandName}}</td>
+      <td>
+        <img  style = "height:50px" src="{{v.brandLogo}}" alt="">
+      </td>
+    </tr>
+  {{/each}}
+  </script>
+
+  <script type="text/html" id="dropdownTpl">
+  {{each rows v i}}
+  <li><a href="#">{{v.categoryName}}</a></li>
+  {{/each}}
+  </script>
+
+
+  <!-- <script type="text/html" id="dropdownTpl">
+  {{each rows v i}}
+  <li><a href="#">{{v.categoryName}}</a></li>
+  {{/each}} -->
+<!-- </script> -->
+
   <script src="./lib/jquery/jquery.js"></script>
   <script src="./lib/bootstrap/js/bootstrap.js"></script>
   <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
+  <script src="./lib/bootstrap-paginator/bootstrap-paginator.js"></script>
+  <script src="./lib/artTemplate/template-web.js"></script>
   <script src="./lib/nprogress/nprogress.js"></script>
   <script src="./js/common.js"></script>
   <script src="./js/isLogin.js"></script>
+  <script src="./js/second.js"></script>
 
 </body>
 
