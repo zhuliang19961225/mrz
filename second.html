@@ -105,6 +105,48 @@
 
 
   <!-- 添加模态框 -->
+  <div class="modal fade" tabindex="-1" id="addModal">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal"><span >&times;</span></button>
+          <h4 class="modal-title">添加分类</h4>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <div class="dropdown">
+              <!-- 按钮 -->
+              <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                <span id="dropdownText">请选择一级分类</span>
+                <span class="caret"></span>
+              </button>
+              <!-- 切换的下拉菜单 -->
+              <ul class="dropdown-menu">
+                <!-- 模板引擎 -->
+              </ul>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <input type="text" name="brandName" class="form-control" placeholder="请输入二级分类">
+          </div>
+
+          <div class="form-group">
+            <label for="fileupload" class="btn btn-default">选择图片</label>
+            <input type="file" id="fileupload" style="display:none;">
+          </div>
+
+          <div class="form-group">
+            <img style="height:100px;" src="./images/none.png" alt="">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+          <button type="submit" class="btn btn-primary">添加</button>
+        </div>
+      </div>
+    </div>
+  </div>
   
 
 
@@ -120,6 +162,12 @@
         <img  style = "height:50px" src="{{v.brandLogo}}" alt="">
       </td>
     </tr>
+  {{/each}}
+  </script>
+
+  <script type="text/html" id="dropdownTpl">
+  {{each rows v i}}
+  <li><a href="#">{{v.categoryName}}</a></li>
   {{/each}}
   </script>
 
