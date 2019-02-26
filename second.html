@@ -108,6 +108,7 @@
   <div class="modal fade" tabindex="-1" id="addModal">
     <div class="modal-dialog modal-sm">
       <div class="modal-content">
+<<<<<<< HEAD
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal"><span >&times;</span></button>
           <h4 class="modal-title">添加分类</h4>
@@ -144,6 +145,50 @@
           <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
           <button type="submit" class="btn btn-primary">添加</button>
         </div>
+=======
+        <form id="form">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span >&times;</span></button>
+                <h4 class="modal-title">添加分类</h4>
+              </div>
+              <div class="modal-body">
+                <div class="form-group">
+                  <div class="dropdown">
+                    <!-- 按钮 -->
+                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+                      <span id="dropdownText">请选择一级分类</span>
+                      <span class="caret"></span>
+                    </button>
+                    <!-- 切换的下拉菜单 -->
+                    <ul class="dropdown-menu">
+                      <!-- 模板引擎 -->
+                    </ul>
+                  </div>
+                  <!-- 准备一个隐藏域，专门用于提交数据 -->
+                  <input type="hidden" name="categoryId">
+                </div>
+      
+                <div class="form-group">
+                  <input type="text" name="brandName" class="form-control" placeholder="请输入二级分类">
+                </div>
+      
+                <div class="form-group">
+                  <label for="fileupload" class="btn btn-default">选择图片</label>
+                  <input type="file" name="pic1" data-url="/category/addSecondCategoryPic" id="fileupload" style="display:none;">
+                </div>
+      
+                <div class="form-group" id="imgBox">
+                  <img style="height:100px;" src="./images/none.png" alt="">
+                  <!-- 准备一个隐藏域 -->
+                  <input type="hidden" name="brandLogo">
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                <button type="submit" class="btn btn-primary">添加</button>
+              </div>
+        </form>    
+>>>>>>> login
       </div>
     </div>
   </div>
@@ -167,7 +212,11 @@
 
   <script type="text/html" id="dropdownTpl">
   {{each rows v i}}
+<<<<<<< HEAD
   <li><a href="#">{{v.categoryName}}</a></li>
+=======
+  <li><a data-id="{{v.id}}" href="#">{{v.categoryName}}</a></li>
+>>>>>>> login
   {{/each}}
   </script>
 
@@ -179,6 +228,8 @@
 <!-- </script> -->
 
   <script src="./lib/jquery/jquery.js"></script>
+  <script src="./lib/jquery-fileupload/jquery.ui.widget.js"></script>
+  <script src="./lib/jquery-fileupload/jquery.fileupload.js"></script>
   <script src="./lib/bootstrap/js/bootstrap.js"></script>
   <script src="./lib/bootstrap-validator/js/bootstrapValidator.min.js"></script>
   <script src="./lib/bootstrap-paginator/bootstrap-paginator.js"></script>
